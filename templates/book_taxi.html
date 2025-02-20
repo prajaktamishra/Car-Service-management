@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Book a Taxi</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background: url('/static/images/book_car.jpg') no-repeat center center fixed;
+                background-size: cover;
+                margin: 0;
+                padding: 0;
+            }
+
+            .container {
+                max-width: 600px;
+                margin: 50px auto;
+                padding: 20px;
+                background-color: rgba(255, 255, 255, 0.8); 
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            }
+
+            h1 {
+                text-align: center;
+                color: #333;
+            }
+
+            form {
+                margin-top: 20px;
+            }
+
+            label {
+                display: block;
+                margin-bottom: 5px;
+            }
+
+            input[type="text"],
+            input[type="datetime-local"] {
+                width: calc(100% - 20px);
+                padding: 10px;
+                margin-bottom: 20px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
+
+            input[type="submit"] {
+                width: 100%;
+                padding: 10px;
+                background-color: #007bff;
+                color: #fff;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+
+            input[type="submit"]:hover {
+                background-color: #0056b3;
+            }
+
+            .result {
+                margin-top: 20px;
+                padding: 10px;
+                background-color: rgba(255, 255, 255, 0.9);
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            }
+
+            .result h2 {
+                margin-top: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Book a Taxi</h1>
+            <form method="post" action="{{ url_for('book_taxi') }}">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="phone">Phone:</label>
+                <input type="text" id="phone" name="phone" required>
+                <label for="pickup_location">Pickup Location:</label>
+                <input type="text" id="pickup_location" name="pickup_location" required>
+                <label for="destination">Destination:</label>
+                <input type="text" id="destination" name="destination" required>
+                <label for="time">Time of Pickup:</label>
+                <input type="datetime-local" id="time" name="time" required>
+                <label for="seats">Number of Seats:</label>
+                <select id="seats" name="seats">
+                    <option value="4">4 Seater</option>
+                    <option value="7">7 Seater</option>
+                </select>
+                <input type="submit" value="Book">
+            </form>
+            
+
+            {% if result %}
+            <div class="result">
+                <h2>Booking Details:</h2>
+                <p><strong>Driver Name:</strong> {{ result.driver_name }}</p>
+                <p><strong>Driver Number:</strong> {{ result.driver_phone }}</p>
+                <p><strong>Car Number Plate:</strong>{{result.car_number_plate}}</p>
+                <p><strong>Distance:</strong> {{ result.distance }} km</p>
+                <p><strong>Bill Amount:</strong> Rs.{{ result.bill_amount }}</p>
+            </div>
+            {% endif %}
+        </div>
+    </body>
+</html>

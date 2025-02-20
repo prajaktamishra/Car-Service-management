@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Rental Confirmation</title>
+        <style>
+           body {
+                font-family: Arial, sans-serif;
+                background: url('/static/images/rent_car.jpg') no-repeat center center fixed;
+                background-size: cover;
+                margin: -70px;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+            }
+
+            .container {
+                width: 400px;
+                padding: 20px;
+                background-color: rgba(255, 255, 255, 0.8);
+                border-radius: 5px;
+                box-shadow: 0 0 10px black;
+                text-align:center;
+                margin:-100px;
+            }
+
+            h1 {
+                font-size: 28px;
+                color: black;
+                margin-bottom: 20px;
+            }
+
+            p {
+                font-size: 16px;
+                color: black;
+                margin-bottom: 10px;
+            }
+
+            .info {
+                background-color: #f9f9f9;
+                padding: 10px;
+                border-radius: 5px;
+            }
+
+            .info p {
+                margin-bottom: 5px;
+            }
+
+            .info p:first-child {
+                margin-top: 0;
+            }
+
+
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Rental Confirmation</h1>
+            <p>Your car rental has been confirmed.</p>
+            <div class="info">
+                <p>Your rental car details:</p>
+                <p>Car ID: {{ car_id }}</p>
+                <p>Car Model: {{ car_model }}</p>
+                <p>Plate Number: {{ car_plate_number }}</p>
+                <p>Name: {{ name }}</p>
+                <p>Phone: {{ phone }}</p>
+                <p>Pickup Location: {{ pickup_location }}</p>
+                <p>Pickup Time: {{ pickup_time }}</p>
+            </div>
+        </div>
+    </body>
+</html>

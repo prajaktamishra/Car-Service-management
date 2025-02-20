@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dashboard</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background: url('/static/images/board.jpg') no-repeat center center fixed;
+                background-size: cover;
+                margin: 0;
+                padding: 0;
+            }
+
+            .container {
+                max-width: 800px;
+                margin: 50px auto;
+                padding: 20px;
+                background-color: rgba(255, 255, 255, 0.8);
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+
+            h1 {
+                text-align: center;
+                color: #333;
+            }
+
+            p1 {
+                text-align: center;
+                margin-bottom: 20px;
+                color: black;
+                font-size: 20px;
+            }
+
+            .welcome-message {
+                margin-bottom: 20px;
+                text-align: center;
+                font-size: 20px;
+            }
+
+            .action-buttons {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+            .btn {
+                display: inline-block;
+                padding: 10px 20px;
+                margin: 0 10px;
+                background-color: #007bff;
+                color: #fff;
+                text-decoration: none;
+                border-radius: 5px;
+                transition: background-color 0.3s;
+            }
+
+            .btn:hover {
+                background-color: #0056b3;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Welcome, {{ username }}</h1>
+            <p class="welcome-message">You are logged in to the Car Service Management dashboard.</p>
+            <p1><b>"Welcome to our comprehensive transportation hub, offering both Taxi and Car Rental services. Whether you're looking for a quick ride across town or planning a road trip adventure, we have you covered. Our Taxi Service ensures prompt and reliable transportation, while our Car Rental service offers flexibility and freedom to explore at your own pace. With a diverse fleet and professional drivers, your journey is in good hands. Discover convenience and comfort with our combined transportation solutions today!"</b></p1><br><br>
+            <div class="action-buttons">
+                <a href="{{ url_for('book_taxi') }}" class="btn">Book a Taxi</a>
+                <a href="{{ url_for('rent_car') }}" class="btn">Rent a Car</a>
+            </div>
+            <a href="{{ url_for('logout') }}" class="logout-link">Logout</a>
+        </div>
+    </body>
+</html>
